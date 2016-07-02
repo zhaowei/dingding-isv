@@ -1,0 +1,25 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "3.4.2",
+    "baseName": "dingdingisv",
+    "packageName": "dingdingisv",
+    "packageFolder": "dingdingisv",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "hibernateCache": "hazelcast",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "buildTool": "maven",
+    "jwtSecretKey": "cc10a532b22bfe28df4dc86e93393a24e9cd2105",
+    "enableTranslation": false,
+    "applicationType": "microservice",
+    "testFrameworks": [
+      "gatling"
+    ],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "isvFid",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "corpId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "permantCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updateTime",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160626022545",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "isvapp_permant_code",
+    "pagination": "pagination",
+    "microserviceName": "dingdingisv",
+    "searchEngine": "elasticsearch"
+}

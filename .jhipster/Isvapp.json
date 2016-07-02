@@ -1,0 +1,64 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isvKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suiteToken",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "token",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suiteEncodingAesKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suiteKey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "corpId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suiteSecret",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "suiteTicket",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "permanentCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "openId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160625052916",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "isvapp",
+    "pagination": "pagination",
+    "microserviceName": "dingdingisv",
+    "searchEngine": "elasticsearch"
+}

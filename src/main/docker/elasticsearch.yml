@@ -1,0 +1,10 @@
+version: '2'
+services:
+    dingdingisv-elasticsearch:
+        container_name: dingdingisv-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/dingdingisv/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300

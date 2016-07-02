@@ -1,0 +1,50 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list />
+  </option>
+  <option name="httpMethod" value="POST" />
+  <option name="urlBase" value="http://127.0.0.1:8081" />
+  <option name="urlPath" value="/isvReceive/zw" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Authorization" />
+        <option name="value" value="Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgtZGluZ2RpbmctaXZzMjAxNiMkI0AiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTQ2OTQ0OTY3N30.xdEpodk1vjPxQHblBtysHkGx9Vm-f9K16NcBUalmRoeyLRGY0-qxgPo2IWQypJS0t_DrBLf6hQR0MW7CjsHdRA" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Content-Type" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="signature" />
+        <option name="value" value="2e9304b22c33b0df5cf0a5b74812710f24de4434" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="timestamp" />
+        <option name="value" value="1466918042998" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="nonce" />
+        <option name="value" value="0l888N1S" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="true" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="{&quot;encrypt&quot;:&quot;+r/2C8VJa4HOyuVhgJjHmH+yRdLsenSQxVcrkSbyBeEPHkIw2RDl6OvOCxfrcnyqYeBtKJabD0IPFt+WFBRPnqkV6ZKI69v/LER3O8n7U+gYfoww6PIq5F9Y3UZu+qd8TMECSpF3QpsDKaOfZn5t+2hsTJgdVJzXmoDSMWjvPfP6759aqJybI57VLiSCmyWUh56DoVbTXDpDWf0q3Kl2lVNDgFfONrNCJgT2XYRluhOfLNI1+dzzT+/Gif5wst8YVZ0eH5xpfKAT3yxAWoJlj4jTsdGfFDo4UQQayUBNyqF/+nf6PslsiFlz3WAKNHNXd13s2dKljSUNY8301Nsieg==&quot;}" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>
