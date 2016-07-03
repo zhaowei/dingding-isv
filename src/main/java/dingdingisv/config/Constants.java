@@ -41,6 +41,13 @@ public final class Constants {
     public static final String ENCODING_AES_KEY = "j8clxcmtf9qmks62tytgbm7fo5w99kqrnxnr3qajfaq";
 
 
+    public static final Integer ERROR_APPLICATION = 44444;
+    public static final Integer ERROR_INVIDE_ACCOUND  = 40000;//无效账号
+    public static final Integer ERROR_USER_NAME_EXIST = 40001;//用户名已存在
+    public static final Integer ERROR_USER_UNAUTH = 40002;//用户未授权
+
+    //isvapp
+    public static final Integer ERROR_ISV_CORPID_NOT_FOUND = 40100;//无效 CorpId
 
     private Constants() {
     }
