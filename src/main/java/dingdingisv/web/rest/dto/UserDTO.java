@@ -12,16 +12,16 @@ import java.util.stream.Collectors;
 
 public class UserDTO {
 
-    public static final int PASSWORD_MIN_LENGTH = 4;
+    public static final int PASSWORD_MIN_LENGTH = 2;
     public static final int PASSWORD_MAX_LENGTH = 100;
 
     @Pattern(regexp = "^[a-z0-9]*$")
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 50, message = "请输入用户名")
     private String login;
 
     @NotNull
-    @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
+    @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH, message = "请输入密码")
     private String password;
 
     @Size(max = 50)
@@ -31,7 +31,6 @@ public class UserDTO {
     private String lastName;
 
     @Email
-    @Size(min = 5, max = 100)
     private String email;
 
     private boolean activated = false;

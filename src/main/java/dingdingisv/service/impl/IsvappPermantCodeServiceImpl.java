@@ -47,8 +47,8 @@ public class IsvappPermantCodeServiceImpl implements IsvappPermantCodeService{
     @PersistenceContext
     private EntityManager em;
 
-    private static final ZonedDateTime UPDATED_UPDATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-    private static final ZonedDateTime UPDATED_CREATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private final ZonedDateTime UPDATED_UPDATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private final ZonedDateTime UPDATED_CREATE_TIME = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     /**
      * Save a isvappPermantCode.

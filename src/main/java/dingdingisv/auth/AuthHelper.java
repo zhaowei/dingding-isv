@@ -10,9 +10,12 @@ import com.dingtalk.open.client.api.service.isv.IsvService;
 import dingdingisv.OApiException;
 import dingdingisv.OApiResultException;
 import dingdingisv.config.Constants;
+import dingdingisv.service.IsvappPermantCodeService;
 import dingdingisv.utils.FileUtils;
 import dingdingisv.utils.HttpHelper;
+import dingdingisv.web.rest.dto.IsvappPermantCodeDTO;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -33,6 +36,7 @@ public class AuthHelper {
     public static long currentTime = 0 + cacheTime + 1;
     public static long lastTime = 0;
     public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
     /*
      * 在此方法中，为了避免频繁获取access_token，
@@ -59,31 +63,31 @@ public class AuthHelper {
             if (corpAuthToken.getAccess_token() != null) {
                 // save accessToken
                 accToken = corpAuthToken.getAccess_token();
-                JSONObject jsonAccess = new JSONObject();
-                jsontemp.clear();
-                jsontemp.put("access_token", accToken);
-                jsontemp.put("begin_time", curTime);
-                jsonAccess.put(corpId, jsontemp);
+                //JSONObject jsonAccess = new JSONObject();
+                //jsontemp.clear();
+                //jsontemp.put("access_token", accToken);
+                //jsontemp.put("begin_time", curTime);
+                //jsonAccess.put(corpId, jsontemp);
+                //FileUtils.write2File(jsonAccess, "accesstoken");
 
-                FileUtils.write2File(jsonAccess, "accesstoken");
             } else {
                 throw new OApiResultException("access_token");
             }
 
-            if(accToken.length() > 0){
-
-                JsapiService jsapiService = serviceFactory.getOpenService(JsapiService.class);
-
-                JsapiTicket JsapiTicket = jsapiService.getJsapiTicket(accToken, "jsapi");
-                jsTicket = JsapiTicket.getTicket();
-
-                JSONObject jsonTicket = new JSONObject();
-                jsontemp.clear();
-                jsontemp.put("ticket", jsTicket);
-                jsontemp.put("begin_time", curTime);
-                jsonTicket.put(corpId, jsontemp);
-                FileUtils.write2File(jsonTicket, "jsticket");
-            }
+//            if(accToken.length() > 0){
+//
+//                JsapiService jsapiService = serviceFactory.getOpenService(JsapiService.class);
+//
+//                JsapiTicket JsapiTicket = jsapiService.getJsapiTicket(accToken, "jsapi");
+//                jsTicket = JsapiTicket.getTicket();
+//
+//                JSONObject jsonTicket = new JSONObject();
+//                jsontemp.clear();
+//                jsontemp.put("ticket", jsTicket);
+//                jsontemp.put("begin_time", curTime);
+//                jsonTicket.put(corpId, jsontemp);
+//                FileUtils.write2File(jsonTicket, "jsticket");
+//            }
 
         } else {
             return accessTokenValue.getString("access_token");

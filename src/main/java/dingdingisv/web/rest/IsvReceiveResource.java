@@ -12,6 +12,8 @@ import dingdingisv.utils.aes.DingTalkEncryptException;
 import dingdingisv.utils.aes.DingTalkEncryptor;
 import dingdingisv.web.rest.dto.IsvappDTO;
 import dingdingisv.web.rest.dto.IsvappPermantCodeDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -33,6 +38,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/isvReceive")
 public class IsvReceiveResource {
+
+    private final Logger log = LoggerFactory.getLogger(IsvappPermantCodeResource.class);
 
     @Inject
     IsvappService isvappService;
@@ -139,6 +146,7 @@ public class IsvReceiveResource {
 
             switch (eventType) {
                 case "suite_ticket":
+                    log.debug("receive suite_ticket event : {}, {}", isvappDTO, request);
 				/*"suite_ticket"事件每二十分钟推送一次,数据格式如下
 				 * {
 					  "SuiteKey": "suitexxxxxx",
@@ -156,6 +164,7 @@ public class IsvReceiveResource {
 
                     isvappDTO.setSuiteToken(suiteToken);
                     isvappService.save(isvappDTO);
+                    log.debug("save suite_ticket to db : {}, {}", isvappDTO, request);
 				/*
 				 * ISV应当把最新推送的suiteTicket做持久化存储，
 				 * 以防重启服务器之后丢失了当前的suiteTicket
@@ -177,6 +186,7 @@ public class IsvReceiveResource {
 				  "AuthCode": "adads"
 				}
 				*/
+                    log.debug("receive tmp_auth_code event : {}, {}", isvappDTO, request);
                     Constants.authCode = plainTextJson.getString("AuthCode");
                     //Object value = FileUtils.getValue("ticket", "suiteToken");//获取当前的suiteToken
                     Object value = isvappDTO.getSuiteToken();
@@ -207,6 +217,7 @@ public class IsvReceiveResource {
                         isvappPermantCodeDTO.setCorpId(corpId);
                         isvappPermantCodeDTO.setPermantCode(permanent_code);
                         isvappPermantCodeService.save(isvappPermantCodeDTO);
+                        log.debug("save tmp_auth_code to db : {}, {}", isvappDTO, request.toString());
 
                     }
 
@@ -223,7 +234,16 @@ public class IsvReceiveResource {
 				 * access_token的过期时间为两个小时
 				 */
                     try {
-                        AuthHelper.getAccessToken(corpId, permanent_code, suiteTokenPerm);
+                        String accessToken = AuthHelper.getAccessToken(corpId, permanent_code, suiteTokenPerm);
+                        Date d = new Date();
+                        ZonedDateTime zdt = ZonedDateTime.ofInstant(d.toInstant(), ZoneId.systemDefault());
+
+                        if (accessToken != null) {
+                            isvappPermantCodeDTO.setAccessToken(accessToken);
+                            isvappPermantCodeDTO.setBeginTime(ZonedDateTime.now(ZoneId.systemDefault()).withNano(0));
+                            isvappPermantCodeService.save(isvappPermantCodeDTO);
+                        }
+                        //获取jsticket
 
                     } catch (Exception e1) {
                         // TODO Auto-generated catch block
@@ -312,4 +332,5 @@ public class IsvReceiveResource {
         return new ResponseEntity<String>("test suit", HttpStatus.OK);
 
     }
+
 }

@@ -18,9 +18,15 @@ public class IsvappPermantCodeDTO implements Serializable {
 
     private String permantCode;
 
+    private String accessToken;
+
+    private String jsTicket;
+
     private ZonedDateTime createTime;
 
     private ZonedDateTime updateTime;
+
+    private ZonedDateTime beginTime;
 
 
     public Long getId() {
@@ -96,8 +102,36 @@ public class IsvappPermantCodeDTO implements Serializable {
             ", isvFid=" + isvFid +
             ", corpId='" + corpId + '\'' +
             ", permantCode='" + permantCode + '\'' +
+            ", accessToken='" + accessToken + '\'' +
+            ", jsTicket='" + jsTicket + '\'' +
             ", createTime=" + createTime +
             ", updateTime=" + updateTime +
+            ", beginTime=" + beginTime +
             '}';
     }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getJsTicket() {
+        return jsTicket;
+    }
+
+    public void setJsTicket(String jsTicket) {
+        this.jsTicket = jsTicket;
+    }
+
+    public ZonedDateTime getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(ZonedDateTime beginTime) {
+        this.beginTime = beginTime;
+    }
+
 }

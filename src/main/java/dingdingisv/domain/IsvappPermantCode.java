@@ -33,6 +33,15 @@ public class IsvappPermantCode implements Serializable {
     @Column(name = "permant_code")
     private String permantCode;
 
+    @Column(name = "access_token")
+    private String accessToken;
+
+    @Column(name = "js_ticket")
+    private String jsTicket;
+
+    @Column(name = "begin_time")
+    private ZonedDateTime beginTime;
+
     @Column(name = "create_time")
     private ZonedDateTime createTime;
 
@@ -87,6 +96,30 @@ public class IsvappPermantCode implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getJsTicket() {
+        return jsTicket;
+    }
+
+    public void setJsTicket(String jsTicket) {
+        this.jsTicket = jsTicket;
+    }
+
+    public ZonedDateTime getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(ZonedDateTime beginTime) {
+        this.beginTime = beginTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -105,6 +138,7 @@ public class IsvappPermantCode implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+
     }
 
     @Override
@@ -114,6 +148,9 @@ public class IsvappPermantCode implements Serializable {
             ", isvFid=" + isvFid +
             ", corpId='" + corpId + '\'' +
             ", permantCode='" + permantCode + '\'' +
+            ", accessToken='" + accessToken + '\'' +
+            ", jsTicket='" + jsTicket + '\'' +
+            ", beginTime=" + beginTime +
             ", createTime=" + createTime +
             ", updateTime=" + updateTime +
             '}';

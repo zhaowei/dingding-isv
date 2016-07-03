@@ -18,6 +18,11 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 java -version
 
+## install java8
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
+
 ## maven
 
 /usr/share/maven 主目录
