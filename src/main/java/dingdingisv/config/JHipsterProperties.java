@@ -188,8 +188,8 @@ public class JHipsterProperties {
 
                 private String secret;
 
-                private long tokenValidityInSeconds = 1800;
-                private long tokenValidityInSecondsForRememberMe = 2592000;
+                private long tokenValidityInSeconds = 25920000;//1800;
+                private long tokenValidityInSecondsForRememberMe = 25920000;
 
                 public String getSecret() {
                     return secret;
@@ -501,7 +501,7 @@ public class JHipsterProperties {
         private final SpectatorMetrics spectatorMetrics = new SpectatorMetrics();
 
         public SpectatorMetrics getSpectatorMetrics() { return spectatorMetrics; }
-        
+
         public static class SpectatorMetrics {
 
             private boolean enabled = false;
@@ -519,10 +519,10 @@ public class JHipsterProperties {
         public String[] getDisplayOnActiveProfiles() {
             return displayOnActiveProfiles;
         }
-        
+
         public void setDisplayOnActiveProfiles(String[] displayOnActiveProfiles) {
             this.displayOnActiveProfiles = displayOnActiveProfiles;
         }
-    }  
+    }
 
 }

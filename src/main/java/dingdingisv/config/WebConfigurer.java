@@ -102,7 +102,12 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         log.debug("Registering CORS filter");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = jHipsterProperties.getCors();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        config.setAllowedMethods(Arrays.asList(new String[]{"GET", "PUT", "POST", "DELETE"}));
         source.registerCorsConfiguration("/api/**", config);
+        source.registerCorsConfiguration("/dingding/**", config);
         source.registerCorsConfiguration("/v2/api-docs", config);
         source.registerCorsConfiguration("/oauth/**", config);
         return new CorsFilter(source);
