@@ -44,7 +44,7 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
 
-        <addUniqueConstraint catalogName="cat"
+        <addUniqueConstraint catalogName="dingdingisv"
                              columnNames="isv_fid, corp_id"
                              constraintName="const_isv"
                              deferrable="true"
@@ -53,9 +53,6 @@
                              schemaName="public"
                              tableName="isvapp_permant_code"
                              tablespace="A String"/>
-
-        <dropDefaultValue tableName="isvapp_permant_code" columnName="create_time" columnDataType="datetime"/>
-        <dropDefaultValue tableName="isvapp_permant_code" columnName="update_time" columnDataType="datetime"/>
 
     </changeSet>
 </databaseChangeLog>

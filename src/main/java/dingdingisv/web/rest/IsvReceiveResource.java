@@ -229,6 +229,10 @@ public class IsvReceiveResource {
 				 * 对企业授权的套件发起激活，
 				 */
                     ServiceHelper.getActivateSuite(suiteTokenPerm, isvappDTO.getSuiteKey(), corpId, permanent_code);
+
+                    if (permanent_code != null) {
+                        break;
+                    }
 				/*
 				 * 获取对应企业的access_token，每一个企业都会有一个对应的access_token，访问对应企业的数据都将需要带上这个access_token
 				 * access_token的过期时间为两个小时
