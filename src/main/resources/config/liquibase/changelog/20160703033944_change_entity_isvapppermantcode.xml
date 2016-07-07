@@ -18,40 +18,5 @@
          <column name="js_ticket" type="varchar(255)"/>
       </addColumn>
    </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-6">
-      <dropUniqueConstraint constraintName="CONST_ISV" tableName="ISVAPP_PERMANT_CODE"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-7">
-      <dropTable tableName="JHI_SOCIAL_USER_CONNECTION"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-8">
-      <dropDefaultValue columnDataType="timestamp"
-                        columnName="create_time"
-                        tableName="isvapp"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-9">
-      <dropDefaultValue columnDataType="timestamp"
-                        columnName="create_time"
-                        tableName="isvapp_permant_code"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-10">
-      <dropDefaultValue columnDataType="timestamp"
-                        columnName="created_date"
-                        tableName="jhi_user"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-11">
-      <dropNotNullConstraint columnDataType="varchar(100)"
-                             columnName="email"
-                             tableName="jhi_user"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-12">
-      <dropDefaultValue columnDataType="timestamp"
-                        columnName="update_time"
-                        tableName="isvapp"/>
-   </changeSet>
-   <changeSet author="zhaowei (generated)" id="1467517203142-13">
-      <dropDefaultValue columnDataType="timestamp"
-                        columnName="update_time"
-                        tableName="isvapp_permant_code"/>
-   </changeSet>
+
 </databaseChangeLog>
