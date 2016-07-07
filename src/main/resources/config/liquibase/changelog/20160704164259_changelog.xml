@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="zhaowei (generated)" id="1467650587092-1">
+      <dropDefaultValue columnDataType="timestamp"
+                        columnName="create_time"
+                        tableName="isvapp"/>
+   </changeSet>
+   <changeSet author="zhaowei (generated)" id="1467650587092-2">
+      <dropDefaultValue columnDataType="timestamp"
+                        columnName="create_time"
+                        tableName="isvapp_permant_code"/>
+   </changeSet>
+   <changeSet author="zhaowei (generated)" id="1467650587092-3">
+      <dropDefaultValue columnDataType="timestamp"
+                        columnName="created_date"
+                        tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="zhaowei (generated)" id="1467650587092-4">
+      <dropDefaultValue columnDataType="timestamp"
+                        columnName="update_time"
+                        tableName="isvapp"/>
+   </changeSet>
+   <changeSet author="zhaowei (generated)" id="1467650587092-5">
+      <dropDefaultValue columnDataType="timestamp"
+                        columnName="update_time"
+                        tableName="isvapp_permant_code"/>
+   </changeSet>
+</databaseChangeLog>
