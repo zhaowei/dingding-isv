@@ -1,6 +1,9 @@
 package dingdingisv.web.rest;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.dingtalk.open.client.api.model.isv.CorpAgent;
+import com.dingtalk.open.client.api.model.isv.CorpAuthInfo;
 import com.dingtalk.open.client.api.model.isv.CorpAuthSuiteCode;
 import dingdingisv.auth.AuthHelper;
 import dingdingisv.config.Constants;
@@ -270,7 +273,22 @@ public class IsvReceiveResource {
                     // 由于以下操作需要从持久化存储中获得数据，而本demo并没有做持久化存储（因为部署环境千差万别），所以没有具体代码，只有操作指导。
                     // 1.根据corpid查询对应的permanent_code(永久授权码)
                     // 2.调用『企业授权的授权数据』接口（ServiceHelper.getAuthInfo方法），此接口返回数据具体详情请查看文档。
+
+                    IsvappPermantCodeDTO isvappCode = new IsvappPermantCodeDTO();
+                    isvappPermantCodeDTO = isvappPermantCodeService.findOneByIsvFidAndCorpId(isvappDTO.getId().intValue(), corpid);
+                    if (isvappPermantCodeDTO == null) {
+                        break;
+                    }
+                    CorpAuthInfo corpAuthInfo = ServiceHelper.getAuthInfo(isvappDTO.getSuiteToken(), isvappDTO.getSuiteKey(), corpid, isvappCode.getPermantCode());
+                    isvappPermantCodeDTO.setAuthCorpInfo(JSON.toJSONString(corpAuthInfo.getAuth_corp_info()));
+                    isvappPermantCodeDTO.setAuthUserInfo(JSON.toJSONString(corpAuthInfo.getAuth_user_info()));
+                    isvappPermantCodeDTO.setAuthInfo(JSON.toJSONString(corpAuthInfo.getAuth_info()));
+                    isvappPermantCodeService.save(isvappPermantCodeDTO);
+
+
                     // 3.遍历从『企业授权的授权数据』接口中获取所有的微应用信息
+
+                    //CorpAgent corpAgent = ServiceHelper.getAgent(isvappDTO.getSuiteToken(), isvappDTO.getSuiteKey(), corpid, isvappCode.getPermantCode(), "aa");
                     // 4.对每一个微应用都调用『获取企业的应用信息接口』（ServiceHelper.getAgent方法）
 				/*
 				 * 5.获取『获取企业的应用信息接口』接口返回值其中的"close"参数，才能得知微应用在企业用户做了授权变更之后的状态，有三种状态码
