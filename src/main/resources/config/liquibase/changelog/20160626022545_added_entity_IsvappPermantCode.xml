@@ -55,4 +55,25 @@
                              tablespace="A String"/>
 
     </changeSet>
+
+    <changeSet author="zhaowei (generated)" id="1468033299643-2">
+        <addColumn catalogName="dingdingisv" schemaName="public" tableName="isvapp_permant_code">
+            <column name="agent" type="VARCHAR(255)"/>
+            <column name="agent_name" type="VARCHAR(255)"/>
+            <column name="agent_id" type="VARCHAR(255)"/>
+            <column name="app_id" type="VARCHAR(255)"/>
+            <column name="auth_corp_info" type="VARCHAR(255)"/>
+            <column name="auth_info" type="VARCHAR(255)"/>
+            <column name="auth_user_info" type="VARCHAR(255)"/>
+            <column name="corp_logo_url" type="VARCHAR(255)"/>
+            <column name="corp_name" type="VARCHAR(255)"/>
+            <column name="industry" type="VARCHAR(255)"/>
+            <column name="invite_code" type="VARCHAR(255)"/>
+            <column name="invite_url" type="VARCHAR(255)"/>
+            <column name="is_authenticated" type="VARCHAR(255)"/>
+            <column name="license_code" type="VARCHAR(255)"/>
+            <column name="logo_url" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
