@@ -12,5 +12,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface IsvappPermantCodeRepository extends JpaRepository<IsvappPermantCode,Long> {
 
+    void deleteByIsvFidAndCorpId(Integer isvFid, String corpId);
     IsvappPermantCode findOneByIsvFidAndCorpId(Integer isvFid, String corpId);
 }

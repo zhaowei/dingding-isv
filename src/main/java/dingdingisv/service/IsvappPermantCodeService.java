@@ -53,4 +53,6 @@ public interface IsvappPermantCodeService {
     Page<IsvappPermantCode> search(String query, Pageable pageable);
 
     IsvappPermantCodeDTO findOneByIsvFidAndCorpId(Integer isvFid, String corpId);
+
+    void deleteByIsvFidAndCorpId(Integer isvFid, String corpId);
 }

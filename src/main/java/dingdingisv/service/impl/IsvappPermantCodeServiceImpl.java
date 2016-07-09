@@ -111,6 +111,10 @@ public class IsvappPermantCodeServiceImpl implements IsvappPermantCodeService{
         return isvappPermantCodeDTO;
     }
 
+    public void deleteByIsvFidAndCorpId(Integer isvFid, String corpId) {
+        isvappPermantCodeRepository.deleteByIsvFidAndCorpId(isvFid, corpId);
+    }
+
     /**
      *  Delete the  isvappPermantCode by id.
      *

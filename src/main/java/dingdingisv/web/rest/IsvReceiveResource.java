@@ -306,6 +306,14 @@ public class IsvReceiveResource {
 				 */
                     res = plainTextJson.getString("Random");
                     break;
+
+                case "suite_relieve":
+
+                    Long isvFid = isvappDTO.getId();
+                    String corpIdDel = plainTextJson.getString("AuthCorpId");
+                    isvappPermantCodeService.deleteByIsvFidAndCorpId(isvFid.intValue(), corpIdDel);
+                    //删除授权
+                    break;
                 default: // do something
                     break;
             }
